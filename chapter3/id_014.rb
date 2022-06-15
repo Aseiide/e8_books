@@ -1,8 +1,13 @@
-require 'prime'
-
 n = gets.to_i
-elm = Prime.prime_division(n).map {|p, e| [p] * e }.flatten
+result = []
+sqrt_n = Math.sqrt(n).to_i
 
-elm.each do |i|
-  print "#{i} "
+(2..sqrt_n).each do |i|
+  while n % i == 0
+    n /= i
+    result << i
+  end
 end
+
+result << n if n >= 2
+puts result.join(' ')
