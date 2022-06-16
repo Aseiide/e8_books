@@ -1,13 +1,13 @@
-# 計算回数は O(2N)
+# ユークリッド互除法
 
-A, B = gets.chomp.split.map(&:to_i)
-target = [A, B].min
-ans = 0
+a, b = gets.chomp.split.map(&:to_i)
 
-for i in 1..target
-  if (A % i == 0) && (B % i == 0)
-    ans = i
+while (a>=1 && b >= 1) do
+  if a < b
+    b = b % a
+  else
+    a = a % b
   end
 end
 
-puts ans
+puts b.zero? ? a : b
