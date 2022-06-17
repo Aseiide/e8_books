@@ -11,6 +11,4 @@ def divisor(n)
   return res.sort
 end
 
-divisor(n).each do |i|
-  print "#{i} "
-end
+puts divisor(n).join(' ')
